@@ -10,6 +10,6 @@ public class MemberBean implements Serializable {
     public String memName;
     public String memPw;
     public String memRegDate;
-    public List<MemberBean> memoLIst;
+    public List<MemoBean> memoList;
 
 }
