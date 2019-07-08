@@ -6,4 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".activity.ModifyMemoActivity">
 
+    <EditText
+        android:id="@+id/txtModify"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:background="#F5F4F4"
+        android:gravity="top"
+        android:hint="내용을 입력해 주세요"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textSize="15dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

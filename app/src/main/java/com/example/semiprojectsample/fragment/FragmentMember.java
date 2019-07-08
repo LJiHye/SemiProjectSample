@@ -1,10 +1,12 @@
 package com.example.semiprojectsample.fragment;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.semiprojectsample.R;
+import com.example.semiprojectsample.activity.LoginActivity;
 import com.example.semiprojectsample.bean.MemberBean;
 import com.example.semiprojectsample.db.FileDB;
 
@@ -39,6 +42,16 @@ public class FragmentMember extends Fragment {
         txtMemName.setText(memberBean.memName);
         txtMemPw.setText(memberBean.memPw);
         txtMemDate.setText(memberBean.memRegDate);
+
+        Button btnLogout = view.findViewById(R.id.btnLogout);
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(), LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(i);
+            }
+        });
 
         return view;
     }

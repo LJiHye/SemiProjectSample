@@ -89,27 +89,33 @@ public class CameraCapture2Activity extends AppCompatActivity {
         MemberBean memberBean = new MemberBean();
         memberBean.memId = mEdtId.getText().toString();
         memberBean.memName = mEdtName.getText().toString();
-        memberBean.photoPath = mPhotoPath;
+        if(mPhotoPath != null) {
+            memberBean.photoPath = mPhotoPath;
+        } else {
+            Toast.makeText(this, "이미지를 첨부해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         String pw1 = mEdtPw1.getText().toString();
         String pw2 = mEdtPw2.getText().toString();
 
         if(!TextUtils.equals(pw1, pw2)) { // equals를 바로 쓰면 nullpointer의 위험이 있음
             // 일치하지 않는 경우
-            Toast.makeText(this, "패스워드가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "패스워드가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
             return; // 더이상 실행 X
         }
 
         // 아이디가 공백인지 체크한다.
         if(TextUtils.isEmpty(memberBean.memId)) { // Null 또는 공백"" 둘 다 비었다고 간주함
-            Toast.makeText(this, "회원 아이디를 입력하세요", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "회원 아이디를 입력하세요", Toast.LENGTH_SHORT).show();
             return;
         }
 
         // 이미 존재하는 회원 아이디를 찾는다. getFindMember 구현해야 함!
         MemberBean findMemBean = FileDB.getFindMember(this, memberBean.memId);
         if(findMemBean != null) { // 해당 id의 멤버를 찾은 경우
-            Toast.makeText(this, "이미 존재하는 ID입니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "이미 존재하는 ID입니다.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -121,7 +127,7 @@ public class CameraCapture2Activity extends AppCompatActivity {
         FileDB.addMember(this, memberBean);
 
         // 회원가입 완료
-        Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
         finish(); // 다시 로그인 화면으로 돌아감
     }
 
@@ -189,7 +195,7 @@ public class CameraCapture2Activity extends AppCompatActivity {
         Bitmap rotatedBmp = roate(resizedBmp, 90);
         mImgProfile.setImageBitmap( rotatedBmp );
 
-        Toast.makeText(this, "사진경로:"+mPhotoPath, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "사진경로:"+mPhotoPath, Toast.LENGTH_SHORT).show();
     }
 
     private int exifOrientToDegree(int exifOrientation) {

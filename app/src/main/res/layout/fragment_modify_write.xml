@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragment.FragmentMemo">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <EditText
+        android:id="@+id/txtMemo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_margin="20dp"
+        android:background="#F5F4F4"
+        android:gravity="top"
+        android:hint="내용을 입력해 주세요"
+        android:inputType="textPersonName"
+        android:lines="10"
+        android:maxLines="10"
+        android:padding="10dp"
+        android:textSize="15dp" />
 
-</FrameLayout>
+</LinearLayout>
