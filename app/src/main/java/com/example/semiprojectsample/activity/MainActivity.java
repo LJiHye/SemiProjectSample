@@ -1,6 +1,7 @@
 package com.example.semiprojectsample.activity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -12,6 +13,8 @@ import com.example.semiprojectsample.R;
 import com.example.semiprojectsample.fragment.FragmentMember;
 import com.example.semiprojectsample.fragment.FragmentMemo;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,4 +77,22 @@ public class MainActivity extends AppCompatActivity {
             return tabCount;
         }
     } //end class ViewPagerAdapter
+
+    private long backPressedAt;
+
+    @Override
+    public void onBackPressed() {
+        if (backPressedAt + TimeUnit.SECONDS.toMillis(2) > System.currentTimeMillis()) {
+            super.onBackPressed();
+            finish();
+        }
+        else {
+            if(this instanceof MainActivity) {
+                Toast.makeText(this, "한번더 뒤로가기 클릭시 앱을 종료 합니다.", Toast.LENGTH_LONG).show();
+                backPressedAt = System.currentTimeMillis();
+            } else {
+                super.onBackPressed();
+            }
+        }
+    }
 }

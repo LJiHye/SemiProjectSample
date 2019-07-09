@@ -19,8 +19,6 @@ import com.example.semiprojectsample.activity.LoginActivity;
 import com.example.semiprojectsample.bean.MemberBean;
 import com.example.semiprojectsample.db.FileDB;
 
-import java.io.File;
-
 public class FragmentMember extends Fragment {
     @Nullable
     @Override
@@ -37,7 +35,10 @@ public class FragmentMember extends Fragment {
         // FileDB 에 get,setLoginMember 메소드 추가
         MemberBean memberBean = FileDB.getLoginMember(getActivity());
 
-        imgProfile.setImageURI(Uri.fromFile(new File(memberBean.photoPath)));
+        //imgProfile.setImageURI(Uri.fromFile(new File(memberBean.photoPath)));
+        if(memberBean.photoPath != null)
+            imgProfile.setImageURI(Uri.parse(memberBean.photoPath));
+
         txtMemId.setText(memberBean.memId);
         txtMemName.setText(memberBean.memName);
         txtMemPw.setText(memberBean.memPw);

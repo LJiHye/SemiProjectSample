@@ -128,7 +128,9 @@ public class CameraCapture2Activity extends AppCompatActivity {
 
         // 회원가입 완료
         Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
-        finish(); // 다시 로그인 화면으로 돌아감
+        //finish(); // 다시 로그인 화면으로 돌아감
+        Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);
     }
 
     private void takePicture() {
@@ -245,5 +247,10 @@ public class CameraCapture2Activity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+    }
 }
 

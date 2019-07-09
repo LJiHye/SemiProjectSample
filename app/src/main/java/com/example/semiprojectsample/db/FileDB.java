@@ -179,6 +179,20 @@ public class FileDB {
     // 기존 메모 교체
     public static void setMemo(Context context, String memId, MemoBean memoBean) {
         // TODO
+        List<MemoBean> memoList = getMemoList(context, memId);
+
+        for(MemoBean findMemo : memoList) {
+            //MemoBean findMemo = memoList.get(i);
+            if (memoBean.memoId == findMemo.memoId) {
+                findMemo.memo = memoBean.memo;
+                findMemo.memoPicPath = memoBean.memoPicPath;
+                break;
+            }
+        }
+        MemberBean findMember = getFindMember(context, memId);
+        if (findMember == null) return;
+        findMember.memoList = memoList;
+        setMember(context, findMember);
     }
 
     // 메모 삭제
@@ -211,6 +225,4 @@ public class FileDB {
             return memberBean.memoList;
         }
     }
-
-    // findMemo도 필요.. 수정하러 들어갔을 때 메모가 몇 번짼지?
 }

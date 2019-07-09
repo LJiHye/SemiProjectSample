@@ -1,7 +1,6 @@
 package com.example.semiprojectsample.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -117,16 +116,20 @@ public class NewMemoActivity extends AppCompatActivity {
         FragmentCamera f1 = (FragmentCamera) mViewPagerAdapter.instantiateItem(mViewPager, 1); // 인덱스 0
 
         EditText edtWriteMemo = f0.getView().findViewById(R.id.edtWriteMemo);
+/*
         String memoStr = edtWriteMemo.getText().toString();
+*/
         String photoPath = f1.mPhotoPath;
 
-        Log.e("SEMI", "MemoStr = " + memoStr + ", photoPath = " + photoPath);
+     /*   Log.e("SEMI", "MemoStr = " + memoStr + ", photoPath = " + photoPath);
         Toast.makeText(this, "MemoStr = " + memoStr + ", photoPath = " + photoPath, Toast.LENGTH_LONG).show();
-
+*/
         // TODO 파일 DB에 저장 처리
         MemberBean memberBean = FileDB.getLoginMember(this);
         MemoBean memoBean = new MemoBean();
-        memoBean.memo = edtWriteMemo.getText().toString();
+        if(edtWriteMemo != null)
+            memoBean.memo = edtWriteMemo.getText().toString();
+
         SimpleDateFormat sdf = new SimpleDateFormat ( "yyyy.MM.dd");
         Date currentTime = new Date();
         String dTime = sdf.format(currentTime);

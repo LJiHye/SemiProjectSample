@@ -30,6 +30,8 @@ import java.util.List;
 
 public class FragmentMemo extends Fragment {
     public static final int SAVE = 1001;
+    public static final int MODIFY = 1002;
+    public static final int DETAIL = 1003;
     public ListView mLstMemo; // MainActivity에서 접근할 수 있어야 하므로 public
 /*
     List<MemoBean> memo = new ArrayList<>();;
@@ -66,6 +68,17 @@ public class FragmentMemo extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == SAVE) {
+            memos = FileDB.getMemoList(getContext(), memberBean.memId);
+            adapter.setItems(memos);
+            adapter.notifyDataSetChanged();
+        }
+
+        if(requestCode == DETAIL) {
+            memos = FileDB.getMemoList(getContext(), memberBean.memId);
+            adapter.setItems(memos);
+            adapter.notifyDataSetChanged();
+        }
+        if(requestCode == MODIFY) {
             memos = FileDB.getMemoList(getContext(), memberBean.memId);
             adapter.setItems(memos);
             adapter.notifyDataSetChanged();
@@ -129,7 +142,8 @@ public class FragmentMemo extends Fragment {
                 public void onClick(View view) {
                     //Toast.makeText(getContext(), "수정..", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), ModifyMemoActivity.class);
-                    startActivity(intent);
+                    intent.putExtra("MEMOBEAN", memoBean);
+                    startActivityForResult(intent, MODIFY);
                 }
             });
             btnDetail = view.findViewById(R.id.btnDetail);
@@ -138,7 +152,8 @@ public class FragmentMemo extends Fragment {
                 public void onClick(View view) {
                     //Toast.makeText(getContext(), "상세..", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(getActivity(), ModifyMemoActivity.class);
-                    startActivity(intent);
+                    intent.putExtra("MEMOBEAN", memoBean);
+                    startActivityForResult(intent, DETAIL);
                 }
             });
             btnRemove = view.findViewById(R.id.btnRemove);
@@ -148,9 +163,7 @@ public class FragmentMemo extends Fragment {
                     //Toast.makeText(getContext(), "삭제..", Toast.LENGTH_SHORT).show();
                     FileDB.delMemo(getActivity(), memberBean.memId, memoBean.memoId);
                     Toast.makeText(getActivity(), "삭제", Toast.LENGTH_SHORT).show();
-
                     memoList = FileDB.getMemoList(getActivity(), memberBean.memId);
-
                     adapter.notifyDataSetChanged();
                 }
             });
