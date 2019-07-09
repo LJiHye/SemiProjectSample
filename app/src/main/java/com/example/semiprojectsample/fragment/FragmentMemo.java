@@ -69,7 +69,7 @@ public class FragmentMemo extends Fragment {
                 FileDB.delAllMemo(getActivity(), memberBean.memId);
 
                 /*Intent i = new Intent(getActivity(), FragmentMemo.class); // 컨텍스트를 안 가지고 있기 때문
-                startActivityForResult(i, REMOVEALL);*/
+                startActivityForResult(i, REMO       VEALL);*/
 
                 adapter.setItems(new ArrayList<MemoBean>());
                 adapter.notifyDataSetChanged();

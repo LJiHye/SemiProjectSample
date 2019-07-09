@@ -1,5 +1,6 @@
 package com.example.semiprojectsample.activity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.example.semiprojectsample.R;
 import com.example.semiprojectsample.bean.MemberBean;
 import com.example.semiprojectsample.bean.MemoBean;
 import com.example.semiprojectsample.db.FileDB;
+import com.example.semiprojectsample.dialog.DialogUtil;
 import com.example.semiprojectsample.fragment.FragmentCamera;
 import com.example.semiprojectsample.fragment.FragmentMemoWrite;
 import com.google.android.material.tabs.TabLayout;
@@ -28,6 +30,9 @@ public class NewMemoActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
     private ViewPagerAdapter mViewPagerAdapter;
+
+    MemberBean memberBean;
+    MemoBean memoBean;
     // 클릭 이벤트가 들어왔을 때 여기에 있는 값을 써야 해서 멤버 변수로 올려 줌
 
     @Override
@@ -117,15 +122,54 @@ public class NewMemoActivity extends AppCompatActivity {
         FragmentCamera f1 = (FragmentCamera) mViewPagerAdapter.instantiateItem(mViewPager, 1); // 인덱스 0
 
         EditText edtWriteMemo = f0.getView().findViewById(R.id.edtWriteMemo);
-
         String memoStr = edtWriteMemo.getText().toString();
-
-        String photoPath;
+/*
+        String memoStr = edtWriteMemo.getText().toString();
+*/
 
      /*   Log.e("SEMI", "MemoStr = " + memoStr + ", photoPath = " + photoPath);
         Toast.makeText(this, "MemoStr = " + memoStr + ", photoPath = " + photoPath, Toast.LENGTH_LONG).show();
 */
         // TODO 파일 DB에 저장 처리
+        memberBean = FileDB.getLoginMember(this);
+        memoBean = new MemoBean();
+        if(edtWriteMemo != null)
+            memoBean.memo = edtWriteMemo.getText().toString();
+
+        SimpleDateFormat sdf = new SimpleDateFormat ( "yyyy.MM.dd");
+        Date currentTime = new Date();
+        String dTime = sdf.format(currentTime);
+        memoBean.memoDate = dTime;
+        String photoPath = f1.mPhotoPath;
+        if(f1.mPhotoPath != null) {
+            memoBean.memoPicPath = photoPath;
+        }
+
+        //메모가 공백인지 체크한다.
+        if( TextUtils.isEmpty(memoStr) ){
+            Toast.makeText(this, "메모를 입력하세요", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+     if(photoPath == null) {
+         DialogUtil.showDialog(this, "Memo", "이미지를 추가하지 않았습니다. 메모를 저장하시겠습니까?",
+                 "예", new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialogInterface, int i) {
+                         FileDB.addMemo(getApplicationContext(), memberBean.memId, memoBean);
+                         //Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
+                         finish();
+                     }
+                 },
+                 "아니오", new DialogInterface.OnClickListener() {
+                     @Override
+                     public void onClick(DialogInterface dialogInterface, int i) {
+                         finish();
+                     }
+                 });
+     }
+
+        /*// TODO 파일 DB에 저장 처리
         MemberBean memberBean = FileDB.getLoginMember(this);
         MemoBean memoBean = new MemoBean();
         memoBean.memo = memoStr;
@@ -136,12 +180,6 @@ public class NewMemoActivity extends AppCompatActivity {
         Date currentTime = new Date();
         String dTime = sdf.format(currentTime);
         memoBean.memoDate = dTime;
-
-        //메모가 공백인지 체크한다.
-        if( TextUtils.isEmpty(memoStr) ){
-            Toast.makeText(this, "메모를 입력하세요", Toast.LENGTH_LONG).show();
-            return;
-        }
 
         if(f1.mPhotoPath != null) {
             photoPath = f1.mPhotoPath;
@@ -154,5 +192,6 @@ public class NewMemoActivity extends AppCompatActivity {
         Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
 
         finish();
+    }*/
     }
 }

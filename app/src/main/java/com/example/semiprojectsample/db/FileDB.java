@@ -243,4 +243,57 @@ public class FileDB {
             return memberBean.memoList;
         }
     }
+
+    /*
+    // 강사님 코드
+    public static void setMemo(Context context, MemoBean memoBean) {
+        MemberBean memberBean = getLoginMember(context);
+
+        if(memberBean == null || memberBean.memoList == null) return;
+
+        List<MemoBean> memoList = memberBean.memoList;
+        for(int i=0; i<memoList.size(); i++) {
+            MemoBean mBean = memoList.get(i);
+            if(mBean.memoId == memoBean.memoId) {
+                memoList.set(i, memoBean); // 교체
+                break;
+            }
+        }
+        // 업데이트된 메모 리스트에 저장
+        memberBean.memoList = memoList;
+        setMember(context, memberBean);
+    }
+
+    public static void delMemo(Context context, long memoId) {
+        MemberBean memberBean = getLoginMember(context);
+
+        List<MemoBean> memoList = memberBean.memoList;
+        if(memoList == null) return;
+        for(int i=0; i<memoList.size(); i++) {
+            MemoBean mBean = memoList.get(i);
+            if(mBean.memoId == memoId) {
+                // 찾았다.
+                memoList.remove(i);
+                break;
+            }
+        }
+        // 저장
+        memberBean.memoList = memoList;
+        setMember(context, memberBean);
+    }
+
+    public static MemoBean getMemo(Context context ,long memoId) {
+        MemberBean memberBean = getLoginMember(context);
+        List<MemoBean> memoList = memberBean.memoList;
+        if(memoList == null) return null;
+
+        for(MemoBean bean : memoList) {
+            if(bean.memoId == memoId) {
+                // 찾았다.
+                return bean;
+            }
+        }
+        return null;
+    }
+    */
 }
