@@ -117,7 +117,7 @@ public class ModifyMemoActivity extends AppCompatActivity {
 
         EditText edtModifyMemo = f0.getView().findViewById(R.id.edtModifyMemo);
         String memoStr = edtModifyMemo.getText().toString();
-        String photoPath = f1.mPhotoPath;
+        String photoPath = null;
 
         intent = getIntent();
         memoBean = (MemoBean) intent.getSerializableExtra("MEMOBEAN");
@@ -128,7 +128,11 @@ public class ModifyMemoActivity extends AppCompatActivity {
         memberBean = FileDB.getLoginMember(this);
 
         memoBean.memo = memoStr;
-        memoBean.memoPicPath = photoPath;
+
+        if(f1.mPhotoPath != null) {
+            photoPath = f1.mPhotoPath;
+            memoBean.memoPicPath = photoPath;
+        }
 
         FileDB.setMemo(this, memberBean.memId, memoBean);
         Toast.makeText(this, "수정 완료", Toast.LENGTH_SHORT).show();
