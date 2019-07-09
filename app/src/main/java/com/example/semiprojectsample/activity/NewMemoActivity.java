@@ -130,46 +130,50 @@ public class NewMemoActivity extends AppCompatActivity {
 
      /*   Log.e("SEMI", "MemoStr = " + memoStr + ", photoPath = " + photoPath);
         Toast.makeText(this, "MemoStr = " + memoStr + ", photoPath = " + photoPath, Toast.LENGTH_LONG).show();*/
+
         // TODO 파일 DB에 저장 처리
         memberBean = FileDB.getLoginMember(this);
         memoBean = new MemoBean();
-        if(edtWriteMemo != null)
+        if (edtWriteMemo != null)
             memoBean.memo = edtWriteMemo.getText().toString();
 
-        SimpleDateFormat sdf = new SimpleDateFormat ( "yyyy.MM.dd");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         Date currentTime = new Date();
         String dTime = sdf.format(currentTime);
         memoBean.memoDate = dTime;
         String photoPath = f1.mPhotoPath;
-        if(f1.mPhotoPath != null) {
+        if (f1.mPhotoPath != null) {
             memoBean.memoPicPath = photoPath;
         }
 
         //메모가 공백인지 체크한다.
-        if( TextUtils.isEmpty(memoStr) ){
+        if (TextUtils.isEmpty(memoStr)) {
             Toast.makeText(this, "메모를 입력하세요", Toast.LENGTH_LONG).show();
             return;
         }
 
-     if(photoPath == null) {
-         DialogUtil.showDialog(this, "Memo", "이미지를 추가하지 않았습니다. 메모를 저장하시겠습니까?",
-                 "예", new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface dialogInterface, int i) {
-                         FileDB.addMemo(getApplicationContext(), memberBean.memId, memoBean);
-                         //Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
-                         finish();
-                     }
-                 },
-                 "아니오", new DialogInterface.OnClickListener() {
-                     @Override
-                     public void onClick(DialogInterface dialogInterface, int i) {
-                         finish();
-                     }
-                 });
-     }
+        if(photoPath == null) {
+            DialogUtil.showDialog(this, "Memo", "이미지를 추가하지 않았습니다. 메모를 저장하시겠습니까?",
+                    "예", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            FileDB.addMemo(NewMemoActivity.this, memberBean.memId, memoBean);
+                            //Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
+                            DialogUtil.dismiss();
+                            finish();
+                        }
+                    },
+                    "아니오", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            DialogUtil.dismiss();
+                            finish();
+                        }
+                    });
+            return;
+        }
 
-        FileDB.addMemo(getApplicationContext(), memberBean.memId, memoBean);
+        FileDB.addMemo(this, memberBean.memId, memoBean);
         finish();
 
         /*// TODO 파일 DB에 저장 처리

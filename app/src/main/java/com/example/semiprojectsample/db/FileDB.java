@@ -106,7 +106,8 @@ public class FileDB {
         String str = getSp(context).getString("loginMemberBean", null);
         if(str == null) return null;
         MemberBean memberBean = mGson.fromJson(str, MemberBean.class);
-        return memberBean;
+        return getFindMember(context, memberBean.memId);
+        //return memberBean;
     }
     /* 저장하는 키 값이 다르기 때문에 겹치지 않음 */
 
