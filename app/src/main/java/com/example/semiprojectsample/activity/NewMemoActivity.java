@@ -119,7 +119,7 @@ public class NewMemoActivity extends AppCompatActivity {
 /*
         String memoStr = edtWriteMemo.getText().toString();
 */
-        String photoPath = f1.mPhotoPath;
+        String photoPath;
 
      /*   Log.e("SEMI", "MemoStr = " + memoStr + ", photoPath = " + photoPath);
         Toast.makeText(this, "MemoStr = " + memoStr + ", photoPath = " + photoPath, Toast.LENGTH_LONG).show();
@@ -134,7 +134,10 @@ public class NewMemoActivity extends AppCompatActivity {
         Date currentTime = new Date();
         String dTime = sdf.format(currentTime);
         memoBean.memoDate = dTime;
-        memoBean.memoPicPath = photoPath;
+        if(f1.mPhotoPath != null) {
+            photoPath = f1.mPhotoPath;
+            memoBean.memoPicPath = photoPath;
+        }
         FileDB.addMemo(this, memberBean.memId, memoBean);
         Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
 

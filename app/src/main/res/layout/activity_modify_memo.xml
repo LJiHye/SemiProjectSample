@@ -31,6 +31,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="수정"
+            android:backgroundTint="#e1e6e6"
             android:fontFamily="@font/goyang"/>
         <Button
             android:id="@+id/btnModRemove"
@@ -38,6 +39,7 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:text="삭제"
+            android:backgroundTint="#e1e6e6"
             android:fontFamily="@font/goyang"/>
     </LinearLayout>
 

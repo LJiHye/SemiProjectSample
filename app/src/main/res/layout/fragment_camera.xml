@@ -15,7 +15,7 @@
         android:layout_height="0dp"
         android:layout_weight="9.5"
         android:padding="10dp"
-        android:src="@mipmap/ic_launcher" />
+        android:src="@drawable/circle" />
 
     <Button
         android:id="@+id/btnMemoCamera"
@@ -24,6 +24,7 @@
         android:layout_marginTop="10dp"
         android:layout_weight="0.5"
         android:text="사진찍기"
+        android:backgroundTint="#e1e6e6"
         android:fontFamily="@font/goyang"/>
 
 </LinearLayout>

@@ -14,11 +14,11 @@
 
         <ImageView
             android:id="@+id/imgMemo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="5dp"
             android:scaleType="fitXY"
-            android:src="@drawable/ic_launcher_background"/>
+            android:src="@drawable/circle2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,18 +44,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="수정"
+                    android:backgroundTint="#e1e6e6"
                     android:fontFamily="@font/goyang"/>
                 <Button
                     android:id="@+id/btnRemove"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="삭제"
+                    android:backgroundTint="#e1e6e6"
                     android:fontFamily="@font/goyang"/>
                 <Button
                     android:id="@+id/btnDetail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="상세보기"
+                    android:backgroundTint="#e1e6e6"
                     android:fontFamily="@font/goyang"/>
             </LinearLayout>
 
@@ -65,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:text="날짜"
                 android:textAlignment="viewEnd"
-                android:textSize="20dp"
+                android:textSize="15dp"
                 android:fontFamily="@font/goyang"/>
 
         </LinearLayout>

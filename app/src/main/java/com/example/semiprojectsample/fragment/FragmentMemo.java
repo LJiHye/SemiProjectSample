@@ -151,7 +151,7 @@ public class FragmentMemo extends Fragment {
                 if(memoBean.memoPicPath != null) {
                     memoImg.setImageURI(Uri.parse(memoBean.memoPicPath));
                 } else
-                    memoImg.setImageResource(R.drawable.ic_launcher_background);
+                    memoImg.setImageResource(R.drawable.circle2);
 
                 txtvMemo.setText(memoBean.memo);
                 txtvDate.setText(memoBean.memoDate);

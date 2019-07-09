@@ -13,6 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="새 메모 작성"
+        android:backgroundTint="#e1e6e6"
         android:fontFamily="@font/goyang"/>
 
     <ListView
@@ -27,6 +28,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:text="메모 전체 삭제"
+        android:backgroundTint="#e1e6e6"
         android:fontFamily="@font/goyang"/>
 </LinearLayout>
 

@@ -34,6 +34,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="취소"
+            android:backgroundTint="#e1e6e6"
             android:fontFamily="@font/goyang"/>
 
         <Button
@@ -42,6 +43,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="저장"
+            android:backgroundTint="#e1e6e6"
             android:fontFamily="@font/goyang"/>
     </LinearLayout>
 </LinearLayout>
