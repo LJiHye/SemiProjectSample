@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
 
             MemberBean memberBean = FileDB.getFindMember(LoginActivity.this, memId);
             if(memberBean == null) {
-                Toast.makeText(LoginActivity.this, "존재하지 않는 아이디입니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "존재하지 않는 아이디입니다.", Toast.LENGTH_SHORT).show();
                 return;
             }
             if(TextUtils.equals(memberBean.memPw, memPwd)) {
@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
             } else {
-                Toast.makeText(LoginActivity.this, "패스워드가 일치하지 않습니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "패스워드가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                 return;
             }
         }

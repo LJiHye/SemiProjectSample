@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else {
             if(this instanceof MainActivity) {
-                Toast.makeText(this, "한번더 뒤로가기 클릭시 앱을 종료 합니다.", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "한번더 뒤로가기 클릭시 앱을 종료 합니다.", Toast.LENGTH_SHORT).show();
                 backPressedAt = System.currentTimeMillis();
             } else {
                 super.onBackPressed();

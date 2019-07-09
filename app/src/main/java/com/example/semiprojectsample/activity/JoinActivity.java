@@ -110,7 +110,7 @@ public class JoinActivity extends AppCompatActivity {
         intent.setData(contentUri);
         sendBroadcast(intent);
 
-        Toast.makeText(this, "앨범에 사진이 추가되었습니다.", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "앨범에 사진이 추가되었습니다.", Toast.LENGTH_SHORT).show();
     }
 
     // 이미지 파일명 생성
@@ -181,7 +181,7 @@ public class JoinActivity extends AppCompatActivity {
                     mImgProfile.setImageURI(mProviderUri); // 사진촬영한 이미지 설정
 
                 } else {
-                    Toast.makeText(this, "사진촬영을 취소하였습니다.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "사진촬영을 취소하였습니다.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             case REQ_TAKE_ALBUM:

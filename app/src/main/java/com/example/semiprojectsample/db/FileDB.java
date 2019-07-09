@@ -213,6 +213,24 @@ public class FileDB {
         setMember(context, findMember);
     }
 
+    // 메모 전체 삭제
+    public static void delAllMemo(Context context, String memId) {
+        // TODO
+        List<MemoBean> memoList = getMemoList(context, memId);
+
+        /*for(int i=0; i<memoList.size(); i++) {
+            MemoBean memoBean = memoList.get(i);
+            memoList.remove(i);
+        }*/
+
+        memoList = new ArrayList<>();
+
+        MemberBean findMember = getFindMember(context, memId);
+        if (findMember == null) return;
+        findMember.memoList = memoList;
+        setMember(context, findMember);
+    }
+
     // 메모 리스트 취득
     public static List<MemoBean> getMemoList(Context context, String memId) {
         MemberBean memberBean = getFindMember(context, memId);

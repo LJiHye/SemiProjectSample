@@ -136,7 +136,7 @@ public class NewMemoActivity extends AppCompatActivity {
         memoBean.memoDate = dTime;
         memoBean.memoPicPath = photoPath;
         FileDB.addMemo(this, memberBean.memId, memoBean);
-        Toast.makeText(this, "저장 완료", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
 
         finish();
     }

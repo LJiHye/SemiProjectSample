@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원정보"
-        android:layout_marginTop="20dp"
         android:textSize="30dp"
         android:gravity="center"
         android:textStyle="bold" />
@@ -38,7 +37,7 @@
         android:id="@+id/txtMemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="TextView" />
 
@@ -46,7 +45,7 @@
         android:id="@+id/txtMemPw"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="TextView" />
 
@@ -54,7 +53,7 @@
         android:id="@+id/txtMemDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="TextView" />
 

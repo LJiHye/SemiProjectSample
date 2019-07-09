@@ -32,6 +32,7 @@ public class FragmentMemo extends Fragment {
     public static final int SAVE = 1001;
     public static final int MODIFY = 1002;
     public static final int DETAIL = 1003;
+    public static final int REMOVEALL = 1004;
     public ListView mLstMemo; // MainActivity에서 접근할 수 있어야 하므로 public
 /*
     List<MemoBean> memo = new ArrayList<>();;
@@ -60,7 +61,21 @@ public class FragmentMemo extends Fragment {
                 startActivityForResult(i, SAVE);
             }
         });
-        return view;
+
+        view.findViewById(R.id.btnRemoveAll).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // 메모 전체 삭제
+                FileDB.delAllMemo(getActivity(), memberBean.memId);
+
+                /*Intent i = new Intent(getActivity(), FragmentMemo.class); // 컨텍스트를 안 가지고 있기 때문
+                startActivityForResult(i, REMOVEALL);*/
+
+                adapter.setItems(new ArrayList<MemoBean>());
+                adapter.notifyDataSetChanged();
+            }
+        });
+    return view;
     }
 
     @Override
@@ -83,6 +98,11 @@ public class FragmentMemo extends Fragment {
             adapter.setItems(memos);
             adapter.notifyDataSetChanged();
         }
+        /*if(requestCode == REMOVEALL) {
+            memos = FileDB.getMemoList(getContext(), memberBean.memId);
+            adapter.setItems(memos);
+            adapter.notifyDataSetChanged();
+        }*/
     }
 
     class ListAdapter extends BaseAdapter {

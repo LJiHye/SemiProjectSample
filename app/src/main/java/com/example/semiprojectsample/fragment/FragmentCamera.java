@@ -114,7 +114,7 @@ public class FragmentCamera extends Fragment {
         Bitmap rotatedBmp = roate(resizedBmp, 90);
         mimgMemoCamera.setImageBitmap( rotatedBmp );
 
-        Toast.makeText(getActivity(), "사진경로:"+mPhotoPath, Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "사진경로:"+mPhotoPath, Toast.LENGTH_SHORT).show();
     }
 
     private int exifOrientToDegree(int exifOrientation) {

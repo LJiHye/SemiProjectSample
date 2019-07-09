@@ -131,7 +131,7 @@ public class ModifyMemoActivity extends AppCompatActivity {
         memoBean.memoPicPath = photoPath;
 
         FileDB.setMemo(this, memberBean.memId, memoBean);
-        Toast.makeText(this, "수정 완료", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "수정 완료", Toast.LENGTH_SHORT).show();
 
         //mViewPagerAdapter2.notifyDataSetChanged();
         finish();
