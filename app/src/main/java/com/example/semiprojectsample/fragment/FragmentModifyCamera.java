@@ -55,7 +55,7 @@ public class FragmentModifyCamera extends Fragment {
         if(memoBean.memoPicPath != null) {
             mimgModifyCamera.setImageURI(Uri.parse(memoBean.memoPicPath));
         } else {
-            mimgModifyCamera.setImageResource(R.drawable.ic_launcher_background);
+            mimgModifyCamera.setImageResource(R.drawable.circle2);
         }
 
         mbtnModifyCamera = view.findViewById(R.id.btnModifyCamera);

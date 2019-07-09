@@ -3,6 +3,7 @@ package com.example.semiprojectsample.activity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
+        getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
 
         mTabLayout = findViewById(R.id.tabLayout);
         mViewPager = findViewById(R.id.viewPager);

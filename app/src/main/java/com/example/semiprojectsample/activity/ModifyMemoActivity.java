@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -35,6 +36,8 @@ public class ModifyMemoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_memo);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
+        getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
 
         mTabLayoutModify = findViewById(R.id.tabLayoutModify);
         mViewPagerModify = findViewById(R.id.viewPagerModify);

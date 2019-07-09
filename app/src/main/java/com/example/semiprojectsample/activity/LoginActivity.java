@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.semiprojectsample.R;
@@ -22,9 +23,17 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_login);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-        setTitle("안드로이드 메모장");
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
+        getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
+        getSupportActionBar().setIcon(R.drawable.pencil);  //액션바 아이콘
+        getSupportActionBar().setElevation(50);  //액션바 그림자
+//        getSupportActionBar().setSubtitle("Subtitle");  //서브 타이틀 보여주기
+
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+
 
         mEditId = findViewById(R.id.edtId);
         mEditPw = findViewById(R.id.edtPw);

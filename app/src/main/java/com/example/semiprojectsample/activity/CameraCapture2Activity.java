@@ -19,6 +19,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
@@ -55,6 +56,8 @@ public class CameraCapture2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
+        getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
 
         //카메라를 사용하기 위한 퍼미션을 요청한다.
         ActivityCompat.requestPermissions(this, new String[]{

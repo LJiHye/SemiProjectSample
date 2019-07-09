@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -48,6 +49,8 @@ public class JoinActivity extends AppCompatActivity {
          checkPermission();
 
         setContentView(R.layout.activity_join);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
+        getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
 
         mImgProfile = findViewById(R.id.imgProfile);
         mEdtId = findViewById(R.id.edtId);
