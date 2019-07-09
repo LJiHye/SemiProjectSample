@@ -23,9 +23,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1조()"
+        android:text="1조가 일조했조"
         android:layout_marginBottom="10dp"
-        android:textColor="#67abd6" />
+        android:textColor="#67abd6"
+        android:textSize="18dp"
+        android:fontFamily="@font/goyang"/>
 
     <EditText
         android:id="@+id/edtId"
