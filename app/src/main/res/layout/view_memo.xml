@@ -16,14 +16,13 @@
             android:id="@+id/imgMemo"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:layout_margin="5dp"
+            android:layout_margin="15dp"
             android:scaleType="fitXY"
             android:src="@drawable/circle2" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:orientation="vertical">
 
