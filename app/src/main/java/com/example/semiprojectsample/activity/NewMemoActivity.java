@@ -1,6 +1,7 @@
 package com.example.semiprojectsample.activity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -116,9 +117,9 @@ public class NewMemoActivity extends AppCompatActivity {
         FragmentCamera f1 = (FragmentCamera) mViewPagerAdapter.instantiateItem(mViewPager, 1); // 인덱스 0
 
         EditText edtWriteMemo = f0.getView().findViewById(R.id.edtWriteMemo);
-/*
+
         String memoStr = edtWriteMemo.getText().toString();
-*/
+
         String photoPath;
 
      /*   Log.e("SEMI", "MemoStr = " + memoStr + ", photoPath = " + photoPath);
@@ -127,6 +128,7 @@ public class NewMemoActivity extends AppCompatActivity {
         // TODO 파일 DB에 저장 처리
         MemberBean memberBean = FileDB.getLoginMember(this);
         MemoBean memoBean = new MemoBean();
+        memoBean.memo = memoStr;
         if(edtWriteMemo != null)
             memoBean.memo = edtWriteMemo.getText().toString();
 
@@ -134,10 +136,20 @@ public class NewMemoActivity extends AppCompatActivity {
         Date currentTime = new Date();
         String dTime = sdf.format(currentTime);
         memoBean.memoDate = dTime;
+
+        //메모가 공백인지 체크한다.
+        if( TextUtils.isEmpty(memoStr) ){
+            Toast.makeText(this, "메모를 입력하세요", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         if(f1.mPhotoPath != null) {
             photoPath = f1.mPhotoPath;
             memoBean.memoPicPath = photoPath;
         }
+
+
+
         FileDB.addMemo(this, memberBean.memId, memoBean);
         Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
 
