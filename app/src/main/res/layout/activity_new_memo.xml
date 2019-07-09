@@ -33,13 +33,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="취소" />
+            android:text="취소"
+            android:fontFamily="@font/goyang"/>
 
         <Button
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="저장" />
+            android:text="저장"
+            android:fontFamily="@font/goyang"/>
     </LinearLayout>
 </LinearLayout>

@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_weight="0.5"
-        android:text="사진찍기" />
+        android:text="사진찍기"
+        android:fontFamily="@font/goyang"/>
 
 </LinearLayout>

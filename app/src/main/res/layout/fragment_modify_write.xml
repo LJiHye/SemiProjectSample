@@ -19,6 +19,7 @@
         android:lines="10"
         android:maxLines="10"
         android:padding="10dp"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        android:fontFamily="@font/goyang"/>
 
 </LinearLayout>

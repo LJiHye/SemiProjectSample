@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="새 메모 작성" />
+        android:text="새 메모 작성"
+        android:fontFamily="@font/goyang"/>
 
     <ListView
         android:id="@+id/lstMemo"
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="메모 전체 삭제" />
+        android:text="메모 전체 삭제"
+        android:fontFamily="@font/goyang"/>
 </LinearLayout>
 

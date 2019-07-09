@@ -18,7 +18,8 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="@font/goyang"/>
 
     <ImageView
         android:id="@+id/imgProfile"
@@ -38,7 +39,8 @@
         android:text="사진찍기"
         app:layout_constraintEnd_toEndOf="@+id/imgProfile"
         app:layout_constraintStart_toStartOf="@+id/imgProfile"
-        app:layout_constraintTop_toBottomOf="@+id/imgProfile" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProfile"
+        android:fontFamily="@font/goyang"/>
 
     <EditText
         android:id="@+id/edtId"
@@ -50,7 +52,8 @@
         android:hint="아이디 입력"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/edtPw1"
-        app:layout_constraintTop_toBottomOf="@+id/btnCamera" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCamera"
+        android:fontFamily="@font/goyang"/>
 
     <EditText
         android:id="@+id/edtName"
@@ -61,7 +64,8 @@
         android:hint="이름 입력"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="@+id/edtId"
-        app:layout_constraintTop_toBottomOf="@+id/edtId" />
+        app:layout_constraintTop_toBottomOf="@+id/edtId"
+        android:fontFamily="@font/goyang"/>
 
     <EditText
         android:id="@+id/edtPw1"
@@ -74,7 +78,8 @@
         android:password="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtName" />
+        app:layout_constraintTop_toBottomOf="@+id/edtName"
+        android:fontFamily="@font/goyang"/>
 
     <EditText
         android:id="@+id/edtPw2"
@@ -87,7 +92,8 @@
         android:inputType="textPersonName"
         android:password="true"
         app:layout_constraintStart_toStartOf="@+id/edtPw1"
-        app:layout_constraintTop_toBottomOf="@+id/edtPw1" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPw1"
+        android:fontFamily="@font/goyang"/>
 
     <Button
         android:id="@+id/btnJoin"
@@ -100,5 +106,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPw2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPw2"
+        android:fontFamily="@font/goyang"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

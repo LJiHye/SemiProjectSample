@@ -14,7 +14,8 @@
         android:text="회원정보"
         android:textSize="30dp"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:fontFamily="@font/goyang"/>
 
     <ImageView
         android:id="@+id/imgProfile"
@@ -31,7 +32,8 @@
         android:text="TextView"
         android:layout_marginTop="20dp"
         tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="278dp" />
+        tools:layout_editor_absoluteY="278dp"
+        android:fontFamily="@font/goyang"/>
 
     <TextView
         android:id="@+id/txtMemName"
@@ -39,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="TextView" />
+        android:text="TextView"
+        android:fontFamily="@font/goyang"/>
 
     <TextView
         android:id="@+id/txtMemPw"
@@ -47,7 +50,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="TextView" />
+        android:text="TextView"
+        android:fontFamily="@font/goyang"/>
 
     <TextView
         android:id="@+id/txtMemDate"
@@ -55,7 +59,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="TextView" />
+        android:text="TextView"
+        android:fontFamily="@font/goyang"/>
 
     <Button
         android:id="@+id/btnLogout"
@@ -63,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="30dp"
-        android:text="로그아웃" />
+        android:text="로그아웃"
+        android:fontFamily="@font/goyang"/>
 
 </LinearLayout>
