@@ -32,7 +32,6 @@ public class FragmentMemo extends Fragment {
     public static final int SAVE = 1001;
     public static final int MODIFY = 1002;
     public static final int DETAIL = 1003;
-    public static final int REMOVEALL = 1004;
     public ListView mLstMemo; // MainActivity에서 접근할 수 있어야 하므로 public
 /*
     List<MemoBean> memo = new ArrayList<>();;
@@ -73,6 +72,8 @@ public class FragmentMemo extends Fragment {
 
                 adapter.setItems(new ArrayList<MemoBean>());
                 adapter.notifyDataSetChanged();
+
+                Toast.makeText(getActivity(), "메모 전체 삭제", Toast.LENGTH_SHORT).show();
             }
         });
     return view;

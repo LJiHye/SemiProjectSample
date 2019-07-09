@@ -124,11 +124,11 @@ public class FragmentModifyCamera extends Fragment {
         } else {
             exifDegree = 0;
         }
-        Bitmap rotatedBmp = roate(resizedBmp, 90);
+        Bitmap rotatedBmp = roate(resizedBmp, exifDegree);
         mimgModifyCamera.setImageBitmap( rotatedBmp );
 
         //줄어든 이미지를 다시 저장한다
-        saveBitmapToFileCache(resizedBmp, mPhotoPath);
+        saveBitmapToFileCache(rotatedBmp, mPhotoPath);
 
         Toast.makeText(getActivity(), "사진경로:"+mPhotoPath, Toast.LENGTH_SHORT).show();
     }

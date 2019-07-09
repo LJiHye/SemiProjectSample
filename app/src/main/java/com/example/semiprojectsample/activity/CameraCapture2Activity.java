@@ -131,9 +131,9 @@ public class CameraCapture2Activity extends AppCompatActivity {
 
         // 회원가입 완료
         Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
-        //finish(); // 다시 로그인 화면으로 돌아감
-        Intent i = new Intent(this, LoginActivity.class);
-        startActivity(i);
+        finish(); // 다시 로그인 화면으로 돌아감
+        /*Intent i = new Intent(this, LoginActivity.class);
+        startActivity(i);*/
     }
 
     private void takePicture() {
@@ -197,11 +197,11 @@ public class CameraCapture2Activity extends AppCompatActivity {
         } else {
             exifDegree = 0;
         }
-        Bitmap rotatedBmp = roate(resizedBmp, 90);
+        Bitmap rotatedBmp = roate(resizedBmp, exifDegree);
         mImgProfile.setImageBitmap( rotatedBmp );
 
         //줄어든 이미지를 다시 저장한다
-        saveBitmapToFileCache(resizedBmp, mPhotoPath);
+        saveBitmapToFileCache(rotatedBmp, mPhotoPath);
 
         Toast.makeText(this, "사진경로:"+mPhotoPath, Toast.LENGTH_SHORT).show();
     }
@@ -280,12 +280,6 @@ public class CameraCapture2Activity extends AppCompatActivity {
                 sendPicture();
             }
         }
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        finish();
     }
 }
 
