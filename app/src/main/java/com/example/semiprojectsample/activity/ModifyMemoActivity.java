@@ -38,6 +38,7 @@ public class ModifyMemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_modify_memo);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
         getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
+        getSupportActionBar().setElevation(50);  //액션바 그림자
 
         mTabLayoutModify = findViewById(R.id.tabLayoutModify);
         mViewPagerModify = findViewById(R.id.viewPagerModify);

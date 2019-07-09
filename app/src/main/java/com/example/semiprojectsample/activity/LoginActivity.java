@@ -27,11 +27,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
         getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
-        getSupportActionBar().setIcon(R.drawable.pencil);  //액션바 아이콘
         getSupportActionBar().setElevation(50);  //액션바 그림자
 //        getSupportActionBar().setSubtitle("Subtitle");  //서브 타이틀 보여주기
 
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
 
 

@@ -51,6 +51,7 @@ public class JoinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_join);
         getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);  //커스텀한 액션바로 보여주기
         getSupportActionBar().setCustomView(R.layout.custom_bar);  //커스텀한 액션바 가져오기
+        getSupportActionBar().setElevation(50);  //액션바 그림자
 
         mImgProfile = findViewById(R.id.imgProfile);
         mEdtId = findViewById(R.id.edtId);
