@@ -123,13 +123,9 @@ public class NewMemoActivity extends AppCompatActivity {
 
         EditText edtWriteMemo = f0.getView().findViewById(R.id.edtWriteMemo);
         String memoStr = edtWriteMemo.getText().toString();
-/*
-        String memoStr = edtWriteMemo.getText().toString();
-*/
 
      /*   Log.e("SEMI", "MemoStr = " + memoStr + ", photoPath = " + photoPath);
-        Toast.makeText(this, "MemoStr = " + memoStr + ", photoPath = " + photoPath, Toast.LENGTH_LONG).show();
-*/
+        Toast.makeText(this, "MemoStr = " + memoStr + ", photoPath = " + photoPath, Toast.LENGTH_LONG).show();*/
         // TODO 파일 DB에 저장 처리
         memberBean = FileDB.getLoginMember(this);
         memoBean = new MemoBean();
@@ -169,6 +165,9 @@ public class NewMemoActivity extends AppCompatActivity {
                  });
      }
 
+        FileDB.addMemo(getApplicationContext(), memberBean.memId, memoBean);
+        finish();
+
         /*// TODO 파일 DB에 저장 처리
         MemberBean memberBean = FileDB.getLoginMember(this);
         MemoBean memoBean = new MemoBean();
@@ -185,8 +184,6 @@ public class NewMemoActivity extends AppCompatActivity {
             photoPath = f1.mPhotoPath;
             memoBean.memoPicPath = photoPath;
         }
-
-
 
         FileDB.addMemo(this, memberBean.memId, memoBean);
         Toast.makeText(this, "저장 완료", Toast.LENGTH_SHORT).show();
